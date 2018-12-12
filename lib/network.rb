@@ -15,7 +15,11 @@ class Network
     @shows << show
   end
 
-  def get_highest_salary
+  def highest_paid_actor
+
+  end
+
+  def highest_paid_actor
     current_highest_salary = 0
     @shows.each do |show|
       show.characters.each do |character|
@@ -26,13 +30,10 @@ class Network
         end
       end
     end
-    highest_paid_actor(current_highest_salary)
-  end
 
-  def highest_paid_actor(highest_salary)
     @shows.each do |show|
       show.characters.each do |character|
-        if character.salary == highest_salary
+        if character.salary == current_highest_salary
           return character.actor
         end
       end
