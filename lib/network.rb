@@ -39,4 +39,31 @@ class Network
       end
     end
   end
+
+  def payroll
+    salaries = []
+    actors = []
+
+    @shows.each do |show|
+      show.characters.each do |character|
+        salaries << character.salary
+      end
+    end
+
+    @shows.each do |show|
+      show.characters.each do |character|
+        actors << character.actor
+      end
+    end
+    actors_and_salaries = actors.zip(salaries)
+    payroll = {}
+    actors_and_salaries.each do |actor, salary|
+      payroll[actor] = salary
+    end
+    return payroll
+    # actors_and_salaries.each do |actor_and_salary|
+    # binding.pry
+    # actors_and_salaries.group_by { |salary| }
+    # end
+  end
 end
